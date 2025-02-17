@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Bookmark{% endblock %}
+
+{% block content %}
+    <h1>Add New Bookmark</h1>
+    <form method="POST" action="{{ url_for('add_bookmark') }}">
+        <div>
+            <label for="url">URL:</label>
+            <input type="url" id="url" name="url" required>
+        </div>
+        <div>
+            <label for="title">Title (Optional):</label>
+            <input type="text" id="title" name="title">
+        </div>
+        <div>
+            <label for="tags">Tags (comma-separated, optional):</label>
+            <input type="text" id="tags" name="tags">
+        </div>
+        <button type="submit">Add Bookmark</button>
+    </form>
+
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+{% endblock %}

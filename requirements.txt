@@ -1,0 +1,6 @@
+requests
+BeautifulSoup4
+nltk
+spaCy
+Flask
+psycopg2-binary

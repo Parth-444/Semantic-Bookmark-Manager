@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      DATABASE_URL: postgresql://bookmark_user:bookmark_password@db:5432/bookmark_manager
+    depends_on:
+      - db
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: bookmark_user
+      POSTGRES_PASSWORD: bookmark_password
+      POSTGRES_DB: bookmark_manager
+    volumes:
+      - db_data:/var/lib/postgresql/data/
+
+volumes:
+  db_data:
