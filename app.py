@@ -14,14 +14,14 @@ def get_db_connection():
     return conn
 
 
-@app.route('/db_test')
-def db_test():
-    conn = get_db_connection()
-    if conn:
-        conn.close()
-        return "success!"
-    else:
-        return "failed"
+# @app.route('/db_test')
+# def db_test():
+#     conn = get_db_connection()
+#     if conn:
+#         conn.close()
+#         return "success!"
+#     else:
+#         return "failed"
 
 
 @app.route('/')
@@ -44,10 +44,10 @@ def add_bookmark():
     return render_template('add_bookmark.html', message=message)
 
 
-@app.route('/test_bookmarks')
-def test_bookmarks():
-    bookmarks = get_all_bookmarks()
-    return str(bookmarks)
+# @app.route('/test_bookmarks')
+# def test_bookmarks():
+#     bookmarks = get_all_bookmarks()
+#     return str(bookmarks)
 
 
 def create_bookmark(url, title, tags):
